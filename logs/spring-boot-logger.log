@@ -1,0 +1,143 @@
+2021-08-12 16:42:21,181 [INFO] org.springframework.boot.StartupInfoLogger: Starting CardApplication using Java 11.0.12 on DESKTOP-OS65ME3 with PID 18548 (D:\git\card\bin\main started by wony in d:\git\card)
+2021-08-12 16:42:21,181 [DEBUG] org.springframework.boot.StartupInfoLogger: Running with Spring Boot v2.5.3, Spring v5.3.9
+2021-08-12 16:42:21,182 [INFO] org.springframework.boot.SpringApplication: The following profiles are active: dev
+2021-08-12 16:42:21,426 [DEBUG] org.springframework.web.filter.GenericFilterBean: Filter 'logFilter' configured for use
+2021-08-12 16:42:21,442 [DEBUG] com.zaxxer.hikari.HikariConfig: Driver class org.mariadb.jdbc.Driver found in Thread context class loader org.springframework.boot.devtools.restart.classloader.RestartClassLoader@603e2a13
+2021-08-12 16:42:21,447 [DEBUG] com.zaxxer.hikari.HikariConfig: HikariPool-2 - configuration:
+2021-08-12 16:42:21,458 [DEBUG] com.zaxxer.hikari.HikariConfig: allowPoolSuspension................................false
+2021-08-12 16:42:21,458 [DEBUG] com.zaxxer.hikari.HikariConfig: autoCommit................................true
+2021-08-12 16:42:21,459 [DEBUG] com.zaxxer.hikari.HikariConfig: catalog................................none
+2021-08-12 16:42:21,459 [DEBUG] com.zaxxer.hikari.HikariConfig: connectionInitSql................................none
+2021-08-12 16:42:21,459 [DEBUG] com.zaxxer.hikari.HikariConfig: connectionTestQuery................................none
+2021-08-12 16:42:21,459 [DEBUG] com.zaxxer.hikari.HikariConfig: connectionTimeout................................30000
+2021-08-12 16:42:21,460 [DEBUG] com.zaxxer.hikari.HikariConfig: dataSource................................none
+2021-08-12 16:42:21,460 [DEBUG] com.zaxxer.hikari.HikariConfig: dataSourceClassName................................none
+2021-08-12 16:42:21,460 [DEBUG] com.zaxxer.hikari.HikariConfig: dataSourceJNDI................................none
+2021-08-12 16:42:21,460 [DEBUG] com.zaxxer.hikari.HikariConfig: dataSourceProperties................................{password=<masked>}
+2021-08-12 16:42:21,461 [DEBUG] com.zaxxer.hikari.HikariConfig: driverClassName................................"org.mariadb.jdbc.Driver"
+2021-08-12 16:42:21,461 [DEBUG] com.zaxxer.hikari.HikariConfig: exceptionOverrideClassName................................none
+2021-08-12 16:42:21,461 [DEBUG] com.zaxxer.hikari.HikariConfig: healthCheckProperties................................{}
+2021-08-12 16:42:21,461 [DEBUG] com.zaxxer.hikari.HikariConfig: healthCheckRegistry................................none
+2021-08-12 16:42:21,461 [DEBUG] com.zaxxer.hikari.HikariConfig: idleTimeout................................600000
+2021-08-12 16:42:21,461 [DEBUG] com.zaxxer.hikari.HikariConfig: initializationFailTimeout................................1
+2021-08-12 16:42:21,461 [DEBUG] com.zaxxer.hikari.HikariConfig: isolateInternalQueries................................false
+2021-08-12 16:42:21,461 [DEBUG] com.zaxxer.hikari.HikariConfig: jdbcUrl................................jdbc:mariadb://localhost:3306/mysql
+2021-08-12 16:42:21,461 [DEBUG] com.zaxxer.hikari.HikariConfig: keepaliveTime................................0
+2021-08-12 16:42:21,461 [DEBUG] com.zaxxer.hikari.HikariConfig: leakDetectionThreshold................................0
+2021-08-12 16:42:21,461 [DEBUG] com.zaxxer.hikari.HikariConfig: maxLifetime................................1800000
+2021-08-12 16:42:21,461 [DEBUG] com.zaxxer.hikari.HikariConfig: maximumPoolSize................................10
+2021-08-12 16:42:21,461 [DEBUG] com.zaxxer.hikari.HikariConfig: metricRegistry................................none
+2021-08-12 16:42:21,462 [DEBUG] com.zaxxer.hikari.HikariConfig: metricsTrackerFactory................................none
+2021-08-12 16:42:21,462 [DEBUG] com.zaxxer.hikari.HikariConfig: minimumIdle................................10
+2021-08-12 16:42:21,462 [DEBUG] com.zaxxer.hikari.HikariConfig: password................................<masked>
+2021-08-12 16:42:21,463 [DEBUG] com.zaxxer.hikari.HikariConfig: poolName................................"HikariPool-2"
+2021-08-12 16:42:21,463 [DEBUG] com.zaxxer.hikari.HikariConfig: readOnly................................false
+2021-08-12 16:42:21,463 [DEBUG] com.zaxxer.hikari.HikariConfig: registerMbeans................................false
+2021-08-12 16:42:21,463 [DEBUG] com.zaxxer.hikari.HikariConfig: scheduledExecutor................................none
+2021-08-12 16:42:21,463 [DEBUG] com.zaxxer.hikari.HikariConfig: schema................................none
+2021-08-12 16:42:21,463 [DEBUG] com.zaxxer.hikari.HikariConfig: threadFactory................................internal
+2021-08-12 16:42:21,463 [DEBUG] com.zaxxer.hikari.HikariConfig: transactionIsolation................................default
+2021-08-12 16:42:21,463 [DEBUG] com.zaxxer.hikari.HikariConfig: username................................"root"
+2021-08-12 16:42:21,463 [DEBUG] com.zaxxer.hikari.HikariConfig: validationTimeout................................5000
+2021-08-12 16:42:21,463 [INFO] com.zaxxer.hikari.HikariDataSource: HikariPool-2 - Starting...
+2021-08-12 16:42:21,465 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Added connection org.mariadb.jdbc.MariaDbConnection@480664e1
+2021-08-12 16:42:21,465 [INFO] com.zaxxer.hikari.HikariDataSource: HikariPool-2 - Start completed.
+2021-08-12 16:42:21,580 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Pool stats (total=1, active=0, idle=1, waiting=0)
+2021-08-12 16:42:21,583 [DEBUG] com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator: HikariPool-2 - Added connection org.mariadb.jdbc.MariaDbConnection@33737d6d
+2021-08-12 16:42:21,585 [DEBUG] com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator: HikariPool-2 - Added connection org.mariadb.jdbc.MariaDbConnection@3db49573
+2021-08-12 16:42:21,586 [DEBUG] com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator: HikariPool-2 - Added connection org.mariadb.jdbc.MariaDbConnection@398b161d
+2021-08-12 16:42:21,587 [DEBUG] com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator: HikariPool-2 - Added connection org.mariadb.jdbc.MariaDbConnection@7c899f48
+2021-08-12 16:42:21,588 [DEBUG] com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator: HikariPool-2 - Added connection org.mariadb.jdbc.MariaDbConnection@eeb227
+2021-08-12 16:42:21,589 [DEBUG] com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator: HikariPool-2 - Added connection org.mariadb.jdbc.MariaDbConnection@354ee2a7
+2021-08-12 16:42:21,590 [DEBUG] com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator: HikariPool-2 - Added connection org.mariadb.jdbc.MariaDbConnection@37e170bb
+2021-08-12 16:42:21,591 [DEBUG] com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator: HikariPool-2 - Added connection org.mariadb.jdbc.MariaDbConnection@18e89818
+2021-08-12 16:42:21,592 [DEBUG] com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator: HikariPool-2 - Added connection org.mariadb.jdbc.MariaDbConnection@6de26ea8
+2021-08-12 16:42:21,592 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - After adding stats (total=10, active=0, idle=10, waiting=0)
+2021-08-12 16:42:21,669 [INFO] org.springframework.boot.StartupInfoLogger: Started CardApplication in 0.561 seconds (JVM running for 36.075)
+2021-08-12 16:42:51,598 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-08-12 16:42:51,598 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-08-12 16:43:21,608 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-08-12 16:43:21,608 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-08-12 16:43:51,618 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-08-12 16:43:51,618 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-08-12 16:44:21,620 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-08-12 16:44:21,620 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-08-12 16:44:51,621 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-08-12 16:44:51,621 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-08-12 16:45:21,628 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-08-12 16:45:21,628 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-08-12 16:45:51,630 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-08-12 16:45:51,630 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-08-12 16:46:21,632 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-08-12 16:46:21,632 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-08-12 16:46:51,633 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-08-12 16:46:51,633 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-08-12 16:47:21,635 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-08-12 16:47:21,635 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-08-12 16:47:51,637 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-08-12 16:47:51,638 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-08-12 16:48:21,640 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-08-12 16:48:21,640 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-08-12 16:48:51,642 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-08-12 16:48:51,642 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-08-12 16:49:21,644 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-08-12 16:49:21,644 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-08-12 16:49:51,645 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-08-12 16:49:51,645 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-08-12 16:50:21,647 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-08-12 16:50:21,647 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-08-12 16:50:51,648 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-08-12 16:50:51,648 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-08-12 16:51:21,650 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-08-12 16:51:21,651 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-08-12 16:51:51,653 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-08-12 16:51:51,653 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-08-12 16:52:21,658 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-08-12 16:52:21,659 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-08-12 16:52:51,667 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-08-12 16:52:51,667 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-08-12 16:53:21,676 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-08-12 16:53:21,676 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-08-12 16:53:51,690 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-08-12 16:53:51,690 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-08-12 16:54:21,701 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-08-12 16:54:21,701 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-08-12 16:54:51,708 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-08-12 16:54:51,708 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-08-12 16:55:21,721 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-08-12 16:55:21,721 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-08-12 16:55:51,732 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-08-12 16:55:51,732 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-08-12 16:56:21,745 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-08-12 16:56:21,745 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-08-12 16:56:51,761 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-08-12 16:56:51,761 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-08-12 16:57:21,774 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-08-12 16:57:21,774 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-08-12 16:57:51,775 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-08-12 16:57:51,775 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-08-12 16:58:21,791 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-08-12 16:58:21,791 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-08-12 16:58:51,794 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-08-12 16:58:51,794 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-08-12 16:59:21,797 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-08-12 16:59:21,797 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-08-12 16:59:51,797 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Pool stats (total=10, active=0, idle=10, waiting=0)
+2021-08-12 16:59:51,797 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Fill pool skipped, pool is at sufficient level.
+2021-08-12 17:00:18,456 [INFO] com.zaxxer.hikari.HikariDataSource: HikariPool-2 - Shutdown initiated...
+2021-08-12 17:00:18,457 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - Before shutdown stats (total=10, active=0, idle=10, waiting=0)
+2021-08-12 17:00:18,457 [DEBUG] com.zaxxer.hikari.pool.PoolBase: HikariPool-2 - Closing connection org.mariadb.jdbc.MariaDbConnection@480664e1: (connection evicted)
+2021-08-12 17:00:18,458 [DEBUG] com.zaxxer.hikari.pool.PoolBase: HikariPool-2 - Closing connection org.mariadb.jdbc.MariaDbConnection@33737d6d: (connection evicted)
+2021-08-12 17:00:18,458 [DEBUG] com.zaxxer.hikari.pool.PoolBase: HikariPool-2 - Closing connection org.mariadb.jdbc.MariaDbConnection@3db49573: (connection evicted)
+2021-08-12 17:00:18,458 [DEBUG] com.zaxxer.hikari.pool.PoolBase: HikariPool-2 - Closing connection org.mariadb.jdbc.MariaDbConnection@398b161d: (connection evicted)
+2021-08-12 17:00:18,459 [DEBUG] com.zaxxer.hikari.pool.PoolBase: HikariPool-2 - Closing connection org.mariadb.jdbc.MariaDbConnection@7c899f48: (connection evicted)
+2021-08-12 17:00:18,459 [DEBUG] com.zaxxer.hikari.pool.PoolBase: HikariPool-2 - Closing connection org.mariadb.jdbc.MariaDbConnection@eeb227: (connection evicted)
+2021-08-12 17:00:18,459 [DEBUG] com.zaxxer.hikari.pool.PoolBase: HikariPool-2 - Closing connection org.mariadb.jdbc.MariaDbConnection@354ee2a7: (connection evicted)
+2021-08-12 17:00:18,460 [DEBUG] com.zaxxer.hikari.pool.PoolBase: HikariPool-2 - Closing connection org.mariadb.jdbc.MariaDbConnection@37e170bb: (connection evicted)
+2021-08-12 17:00:18,460 [DEBUG] com.zaxxer.hikari.pool.PoolBase: HikariPool-2 - Closing connection org.mariadb.jdbc.MariaDbConnection@18e89818: (connection evicted)
+2021-08-12 17:00:18,460 [DEBUG] com.zaxxer.hikari.pool.PoolBase: HikariPool-2 - Closing connection org.mariadb.jdbc.MariaDbConnection@6de26ea8: (connection evicted)
+2021-08-12 17:00:18,461 [DEBUG] com.zaxxer.hikari.pool.HikariPool: HikariPool-2 - After shutdown stats (total=0, active=0, idle=0, waiting=0)
+2021-08-12 17:00:18,461 [INFO] com.zaxxer.hikari.HikariDataSource: HikariPool-2 - Shutdown completed.
+2021-08-12 17:00:18,523 [INFO] org.springframework.boot.StartupInfoLogger: Starting CardApplication using Java 11.0.12 on DESKTOP-OS65ME3 with PID 18548 (D:\git\card\bin\main started by wony in d:\git\card)
+2021-08-12 17:00:18,523 [DEBUG] org.springframework.boot.StartupInfoLogger: Running with Spring Boot v2.5.3, Spring v5.3.9
+2021-08-12 17:00:18,523 [INFO] org.springframework.boot.SpringApplication: The following profiles are active: dev

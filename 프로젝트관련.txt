@@ -1,0 +1,230 @@
+================================================
+vscode 에서 spring boot 로 프로젝트 만드는 간편한 방법
+================================================
+1. 컴파일할 JDK 와 JDK11 을 설치한다. JDK11은 VSCODE 에서 다운받아서 해도 된다. 
+   11이 필요한 이유는 Java Extension Pack 또는 Spring Boot DevTools 을 정상적으로 사용하기 위함이다.
+2. vscode 에 있는 extension pack 을 설치한다
+== Extention ==
+1. Java Extension Pack
+2. Spring Boot Extension Pack
+2. lombok Annotation Support for VS Code
+
+Ctrl + Shift + P 를 눌르고, spring initializer 를 실행해서
+간편하게 원하는 스타일의 spring boot project 를 만들면 된다.
+최종적으로 폴더에 압축하지 않은 project가 만들어 진다.
+
+spring boot 를 오랜만에 다시 알아보면서, 간편하게 되어 있는 특징들을 기록해둔다.
+대신 내가 추가한 Dependencies 에 한해서...
+먼저 Dependencies 리스트 
+== Dependencies ==
+1. Spring Boot DevTools
+2. Lombok
+3. Spring Configuration Processor
+4. Spring Web
+5. Spring Data JPA
+6. MariaDB Driver
+7. Thymeleaf
+8. Quartz Scheduler
+9. Spring for RabbitMQ
+10. Spring for Apache Kafka
+11. Spring Batch
+12. Spring Security
+13. Spring Session
+
+사실 위에 것들은 Spring Initialzer 를 통해서 설치한 리스트목록이고,
+build.gradle 에 추가한 최종 버전은 아래와 같다
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-amqp'
+	implementation 'org.springframework.boot:spring-boot-starter-batch'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-quartz'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+	implementation group: 'nz.net.ultraq.thymeleaf', name: 'thymeleaf-layout-dialect', version: '2.5.3'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.kafka:spring-kafka'
+	implementation 'org.springframework.session:spring-session-core'
+	//implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0'
+	implementation group: 'com.google.code.gson', name: 'gson', version: '2.8.5'
+	implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '2.7.3'
+	compileOnly 'org.projectlombok:lombok'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.amqp:spring-rabbit-test'
+	testImplementation 'org.springframework.batch:spring-batch-test'
+	testImplementation 'org.springframework.kafka:spring-kafka-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+}
+
+JDK 1.8 로 컴파일 하기 위해, build.gradle 에 아래 옵션을 추가하였다.
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+=================================
+@Slf4j annotation 관련 특이사항
+=================================
+@Slf4j 를 사용하면, 2개의 import 가 나오는데, 아래것만 동작했다
+동작했다는 의미는, log.debug 사용지 컴파일이 자동으로 되고, 로그가 나왔다는 뜻.
+groovy를 써보지는 않았지만, lombok 을 사용해서 구성한 프로젝트이기에, 안되는게
+당연하긴 하다. 알파벳 정렬상 groovy가 먼저 올라오니 귀찮아도 잘 확인하자.
+
+import lombok.extern.slf4j.Slf4j; (O)
+import groovy.util.logging.Slf4j; (X)
+
+
+=================================
+Spring Boot Logback
+=================================
+Spring Boot 에서는 기본적으로 logback 을 제공하고,
+공식문서에 classpath 라고 명시하는 resource 하위에 
+logback.xml logback.yml, logback-spring.xml, logback-spring.yml
+등의 형태로 설정 파일을 자동으로 읽으려 한다.
+resource 하위폴더에 넣어서 테스트 해봤더니, 읽지는 않았다.
+별도 설정으로 해줘야 가능한듯 하다
+
+=========================
+Spring Boot Property 관련
+=========================
+기본적으로 아래의 2줄을 읽으려 한다.
+optional:classpath:/;optional:classpath:/config/
+optional:file:./;optional:file:./config/;optional:file:./config/*/
+
+이거는 spring.config.additional-location 으로 별도로 추가한 케이스
+Ex) spring.config.location=optional:classpath:/custom-config/,optional:file:./custom-config/
+optional을 붙이면 없어도 그냥 스킵해줌
+,로 추가시, 맨 뒤에 있는 설정에 해당하는 파일들이 같은 정보일 경우 최종적으로 엎어쳐짐.
+optional:classpath:custom-config/
+optional:file:./custom-config/
+
+spring.config.location 는 기본 경로를 무시하고 지정한 위치만 검색하는 옵션
+spring.config.additional-location 는 기본경로 포함 추가 경로 지정 옵션
+
+./config/*/ 와 같이 */ 와일드 카드는 폴더를 의미한다. 하위 폴더 포함.
+*/filename 은 하위 폴더를 포함하여 검색하는 조건으로 매칭되는 파일명을 찾는다.
+*/ 와일드 카드는 classpath 에 사용하면 안되고, 외부 경로 지정시에만 동작한다.
+
+spring.config.name 을 사용해서 변경하면,
+application.properties 파일이 아닌 newname.properties 를 찾으려 하는것 같음
+
+spring.config.on-not-found 로 아예 property가 없어도 기동되게 설정 가능
+Wildcard locations only work with external directories. You cannot use a wildcard in a classpath: location.
+spring.profiles.active=prod,live 로 profile specific files 처리 (last-win 전략에 따라 적용이 되는데) prod 내용을 live 가 엎어침
+location group
+
+application-dev.properties
+application-stg.properties
+application-prd.properties
+보통 위와 같이 환경별로 설정을 관리하는데, spring profile 을 사용해서 서버 기동시
+argument 를 넘겨서 원하는 환경 설정을 읽어서 동작하도록 한다.
+
+VS Code 의 경우, argument 를 넣는 곳은 
+launch.json 에 "args": "--spring.profiles.active=dev" 에 세팅을 하여 테스트가 가능
+gradle, jar 실행등 application 에 따른 profile 설정은 전부 다름
+
+
+================================================
+vscode 에서 서버 기동시 argument 넣는 법
+================================================
+.vscode
+
+================================================
+Thymeleaf
+================================================
+Thymeleaf 설정 방법은 특별히 없다.
+Dependencies만 추가하고 나서 application.properties에 설정을 잡으면 된다.
+
+application.properties 에 추가한 설정 내용
+# thymeleaf
+spring.thymeleaf.prefix=classpath:templates/
+spring.thymeleaf.check-template-location=true
+spring.thymeleaf.suffix=.html
+spring.thymeleaf.mode=HTML5
+spring.thymeleaf.cache=false
+
+template 폴더 아래에 html 확장자에 대하여 HTML5 모드로 사용하겠다는 뜻으로 이해한다.
+캐쉬는 비활성화하는데.. 어떤 이유인지는 잘 모름
+
+================================================
+vscode Custom Snippets
+================================================
+vscode 들에는 extension을 통한 다양한 snippets 들이 있어서 좋았는데,
+Java 에서 내가 주로 사용하는, 컨트롤러 단 requestmapping 관련된 snippets을
+만들어 놓아서 추후 개발시 사용하려 한다.
+
+snippets 사용 방법은 본인 컴퓨터의
+C:\user\AppData\Roaming\Code\user\snippets 폴더안에 snippets 파일을
+만들면 되는데, 
+vscode 의 File -> Preferences -> User Snippets 눌러서 파일명 작성하면
+알아서 해당 폴더에 파일만들어 주고, 주석으로 사용법도 자동 생성 해준다.
+
+아래는 내가 만든 custom snippet
+Ctrl + Space 누르고 아래의 설정 파일에서 prefix key 에 해당하는 값을 치면
+매칭되는 value 의 내용이 자동으로 만들어진다.
+$1,$2:defaultValue 와 같이 첫번째 입력프롬프트, 두번째 입력 프롬프트 설정이 가능하고,
+$0 으로 최종적으로 커서가 위치하고 snippet을 종료할 수 있게 만들어져 있다.
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+
+	"wonyjson": {
+		"scope": "java",
+		"prefix": "wonyrest",
+		"body": [
+			"@RequestMapping(value=\"${1:/path}\", method={RequestMethod.POST}, produces = \"application/json\")",
+			"public @ResponseBody ${2:String} ${3:methodName}(@RequestBody Map<String,Object> param, Model model) {",
+			"\t$0",
+			"\tMap<String,Object> retMap = new HashMap<String,Object>();",
+			"\tGson gson = new Gson();",
+			"\treturn gson.toJson(retMap);",
+			"}"
+		],
+		"description": "wony rest api"
+	},
+
+	"wonyget": {
+		"scope": "java",
+		"prefix": "wonyget",
+		"body": [
+			"@RequestMapping(value=\"${1:/path}\")",
+			"public String ${2:methodName}(@RequestParam Map<String,Object> param, Model model) {",
+			"\tString name = \"\";",
+			"\t$0",
+			"\tmodel.addAttribute(\"name\",name);",
+			"\treturn \"${3:viewName}\";",
+			"}"
+		],
+		"description": "wony get"
+	},
+	"wonyview": {
+		"scope": "java",
+		"prefix": "wonyview",
+		"body": [
+			"@RequestMapping(value=\"${1:/path}\")",
+			"public String ${2:methodName}(@RequestParam Map<String,Object> param, Model model) {",
+			"\tString name = \"\";",
+			"\t$0",
+			"\tmodel.addAttribute(\"name\",name);",
+			"\treturn \"${3:viewName}\";",
+			"}"
+		],
+		"description": "wony view"
+	}
+}
