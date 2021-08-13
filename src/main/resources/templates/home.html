@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+    <title>Good Thymes Virtual Grocery</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" media="all" th:href="@{/css/main.css}" />
+  </head>
+
+  <body>
+  
+    <p th:text="#{home.welcome}">Welcome to our grocery store!</p>
+    <p th:text="#{welcome}">Welcome to our grocery store!</p>
+    <p th:text="${home.welcome}">Welcome to our grocery store!</p>
+    <p th:text="${welcome}">Welcome to our grocery store!</p>
+
+    <h1 th:text="#{hello}"></h1>
+    <h1 th:text="#{hello2}"></h1>
+    <hr>
+    <h1 style="color: red;" th:text="${#messages.msg('hello')}"></h1>
+    <h1 style="color: red;" th:text="${#messages.msgOrNull('hello')}"></h1>
+    <hr>
+    <h1 style="color: red;" th:text="${#messages.msg('hello2')}"></h1> <!-- 없을 경우 : ??hello2_ko?? 와 같이 나옴 -->
+    <h1 style="color: red;" th:text="${#messages.msgOrNull('hello2')}"></h1> <!-- 없을 경우 : 아무것도 안찍힘 -->
+  
+  </body>
+
+</html>

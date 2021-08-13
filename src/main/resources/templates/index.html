@@ -23,12 +23,20 @@
         <h1>Spring Boot Web Thymeleaf Example</h1>
         <h2>
             <span th:text="'Hello, ' + ${message}"></span>
+            <br>
+            <span th:text="'Hello, ' + ${#messages.msgOrNull('hello2')}"></span>
+            <br>
+            <span th:text="'Hello, ' + #{hello2}"></span>
         </h2>
     </div>
 
     <ol>
         <li th:each="task : ${tasks}" th:text="${task}"></li>
     </ol>
+
+    <ul>
+        <li th:each="task : ${tasks}" th:text="${task}"></li>
+    </ul>    
 
 </main>
 <!-- /.container -->
