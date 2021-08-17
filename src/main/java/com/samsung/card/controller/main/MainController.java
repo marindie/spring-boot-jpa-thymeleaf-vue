@@ -24,7 +24,7 @@ public class MainController {
 
 	@RequestMapping(value="/", method={RequestMethod.GET,RequestMethod.POST})
 	public String mainView(@RequestParam Map<String,Object> param, Model model) {
-		String name = "";
+		String name = "WONY";
 		log.debug("========= WONY ===========");
 
 		//List<Map<String,Object>> taskList = new ArrayList<Map<String,Object>>();

@@ -6,7 +6,7 @@
 
     <title>Spring Boot Thymeleaf Hello World Example</title>
 
-    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
+    <!-- <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/> -->
     <link rel="stylesheet" th:href="@{/css/main.css}"/>
 
 </head>
@@ -34,13 +34,157 @@
         <li th:each="task : ${tasks}" th:text="${task}"></li>
     </ol>
 
-    <ul>
-        <li th:each="task : ${tasks}" th:text="${task}"></li>
-    </ul>    
+    <input type="text" id="good">
+    <br>
+    <div style="width:100%">
+        <span>HTML 입력폼</span>
+        <textarea></textarea>
+    </dv>
 
 </main>
 <!-- /.container -->
 
-<script type="text/javascript" th:src="@{webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>
+<!-- <script type="text/javascript" th:src="@{webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script th:inline="javascript">
+    
+    $( document ).ready(function() {
+        var var1 = { name  : 'jim'};
+        var var2 = var1;
+        console.log(var1);
+        console.log(var2);
+        var2.name = 'My new String';
+        console.log(var2);
+        console.log(var1);
+
+        let mutatingAdd = ['a','b','c','d','e'];
+
+        mutatingAdd.push('f');
+        console.log(mutatingAdd);
+        mutatingAdd.unshift('z');
+        console.log(mutatingAdd);
+
+        const arr1 = ['a','b','c','d','e'];
+        const arr2 = arr1.concat('f');
+        console.log(arr1);
+        console.log(arr2);
+
+        const arr3 = arr1.filter(a => {
+            console.log(a)
+            return a !== 'e'
+        });
+        console.log(arr3);
+
+        const arr4 = arr1.map(item =>{
+            if(item === 'c'){
+                item = 'CAT';
+            }
+            return item;
+        });
+        console.log(arr4);
+
+        const arr5 = [{
+            key1 : "value1",
+            key2 : "value2",
+            key3 : "value3",
+            key4 : "value4",
+        }];
+
+        arr5.map(item => {
+            console.log(item);
+        });
+
+        const obj = {
+            name : 'Joe',
+            food : 'cake'
+        }
+
+        const { name, food } = obj;
+        console.log(name);
+        console.log(food);
+
+        var a;
+        console.log('The value of a is ' + a); // The value of a is undefined
+
+        console.log('The value of b is ' + b); // The value of b is undefined
+        var b;
+        // This one may puzzle you until you read 'Variable hoisting' below
+
+        //console.log('The value of c is ' + c); // Uncaught ReferenceError: c is not defined
+
+        let x;
+        console.log('The value of x is ' + x); // The value of x is undefined
+
+        //console.log('The value of y is ' + y); // Uncaught ReferenceError: y is not defined
+        let y;
+
+        let str = `In javascript, temasdflk
+        laskdfljklasdf
+        asldfjlaks;flk`;
+
+        arr5.map(ele => {
+            let tag = 
+            `<div>
+                <button>${ele}</button>
+            </div>`;
+            $('body').append(tag);
+        })
+        console.log(str);
+
+        var a = 'askdfjlaskdf';
+        var b = [[${name}]];
+
+        console.log(a);
+        console.log(b);
+
+        var param = {
+            "id" : "1"
+        }
+        
+        $.ajax({
+            url: "/user/getUserNameJson",
+            data: param,
+            type:"POST",
+        }).done(function (fragment) {
+            $("#resultDiv").replaceWith(fragment);
+        });
+
+        // Create an object type UserException
+        function UserException(message) {
+        this.message = message;
+        this.name = 'UserException';
+        }
+
+        // Make the exception convert to a pretty string when used as a string
+        // (e.g., by the error console)
+        UserException.prototype.toString = function() {
+        return `${this.name}: "${this.message}"`;
+        }
+
+        // Create an instance of the object type and throw it
+        throw new UserException('Value too high').toString();
+    });
+
+    (function ($, window, document) {
+        console.log('start');
+
+        cool = {
+            vCool : "lazy",
+            lazy : function(){
+                console.log(cool.vCool);
+            }
+        }
+
+        $.fn.wony = function(){
+            console.log(this.val());
+            return this;
+        }
+
+        $.aa = function(obj){
+            console.log(obj.url);
+        }
+        
+    }($, window, document));
+</script>
 </body>
 </html>

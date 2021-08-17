@@ -1,0 +1,114 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Spring Boot Thymeleaf Hello World Example</title>
+
+    <link rel="stylesheet" th:href="@{webjars/bootstrap/4.2.1/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <ul>
+        <li>
+            <a class="navbar-brand" href="/main">Main</a>
+        </li>
+        <li>
+            <a class="navbar-brand" href="/home">Home</a>
+        </li>
+    </ul>
+</nav>
+
+<main role="main" class="container">
+
+    <div class="starter-template">
+        <h1>Spring Boot Web Thymeleaf Example</h1>
+        <h2>
+            <span th:text="'Hello, ' + ${message}"></span>
+        </h2>
+    </div>
+
+    <button id="change-prd01">상품정보 바꾸기</button>
+ 
+    <div class="prdItemList" id="product-slice-two01">
+        <ul class="listSliceTwo" th:each="prd : ${attr.prdInfo}">
+            <li th:replace="fragment/fragTest01.html :: prdDisplay01(${prd.imgUrl}, ${prd.prdName}, ${prd.price01}, ${prd.price02})"></li>
+            <!-- <li th:replace="fragment/fragTest01.html :: prdDisplay01('http://static2.e-himart.co.kr/contents/goods/00/14/49/00/30/0014490030\_\_DJI-AIR2S-COMBO\_\_M_300_300.jpg','DJI *엘포인트 10만점 * DJI 에어2S 플라이모어 콤보 [DJI-AIR2S-COMBO] 스마트드론','1,639,000','1,504,270')"></li> -->
+            <!-- <li>
+                <div class="prdItem">
+                    <a href="#" target="_self" class="prdLink">
+                        <div class="prdImg">
+                            <img src="http://static2.e-himart.co.kr/contents/goods/00/14/49/00/30/0014490030__DJI-AIR2S-COMBO__M_300_300.jpg" alt="*엘포인트 10만점 * DJI 에어2S 플라이모어 콤보 [DJI-AIR2S-COMBO] 스마트드론 " width="300" height="300" onerror="this.src='http://static2.e-himart.co.kr/resources/layout/images/default/300.jpg'">
+                        </div>
+                        <div class="prdInfo">
+                            <p class="prdName">
+                                DJI *엘포인트 10만점 * DJI 에어2S 플라이모어 콤보 [DJI-AIR2S-COMBO] 스마트드론 
+                            </p>
+                            <div class="prdPrice priceTxt">
+                                <div class="priceInfo">
+                                    <span class="discountPrice"><strong>1,639,000</strong><span class="priceUnit">원</span></span>
+                                </div>
+                                <div class="priceInfo priceBenefit">
+                                    <span class="discountPrice"><strong>1,504,270</strong><span class="priceUnit">원</span></span>
+                                    <span class="priceTit">최대혜택가</span>
+                                </div>
+                                <div class="savePoint">
+                                    <span>사은품 증정</span>
+                                </div>
+                            </div>
+                        </div>                        
+                    </a>
+                </div>
+            </li> -->
+        </ul>
+    </div>
+
+    <ol>
+        <li th:each="task : ${tasks}" th:text="${task}"></li>
+    </ol>
+
+    <div>=========================== Access Fragment By Fragment Name ==================</div> 
+    <div th:replace="fragment/fragTest01 :: fragmentName01"></div>
+    <div th:replace="fragment/fragTest01.html :: fragmentName01"></div>
+    <div>=========================== ID Access Test ==================</div> 
+    <div th:replace="fragment/fragTest01 :: '#wonyId01'"></div>
+    <div th:replace="fragment/fragTest01 :: [id='wonyId01']"></div>
+    <div th:replace="fragment/fragTest01 :: //div[id='wonyId01']"></div>
+    <div th:replace="fragment/fragTest01 :: //div[@id='wonyId01']"></div>
+    <div th:replace="fragment/fragTest01 :: //div#wonyId01"></div>
+    <div>=========================== CLASS Access Test ==================</div>
+    <div>===== 같은 ID가 존재하면 일치 하는 모든것에 대한 Dom 을 리턴함 =====</div>
+    <div th:replace="fragment/fragTest01 :: '.wonyClass01'"></div>
+    <div th:replace="fragment/fragTest01 :: [class='wonyClass01']"></div>
+    <div th:replace="fragment/fragTest01 :: //div[@class='wonyClass01']"></div>
+    <div th:replace="fragment/fragTest01 :: //div[class='wonyClass01']"></div>
+    <div th:replace="fragment/fragTest01 :: //div.wonyClass01"></div>
+
+</main>
+<!-- /.container -->
+
+<script type="text/javascript" th:src="@{webjars/bootstrap/4.2.1/js/bootstrap.min.js}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script th:inline="javascript">
+    $(document).ready(function(){
+        console.log("start");        
+    }).on("click","#change-prd01",function(){
+        let param = {};
+        
+        $.ajax({
+            url: "/test/changePartOfDomTest",
+            data: param,
+            type:"POST",
+        }).done(function (fragment) {
+            console.log(fragment);
+            $("#product-slice-two01").replaceWith(fragment);
+        });
+    });
+</script>
+</body>
+</html>

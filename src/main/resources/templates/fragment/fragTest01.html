@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta http-equiv='X-UA-Compatible' content='IE=edge'>
+	<title>Page Title</title>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+	<script src='main.js'></script>
+</head>
+<body>
+	<div th:fragment="fragmentName01">This is Fragment Name 01 Div Element.</div>
+	<div class="wonyClass01">This is Wony Class 01</div>
+	<div id="wonyId01">This is Wony Id 01</div>
+	<div class="wonyClass01 wonyClass02">This is Wony Class 01 And 02</div>
+
+	<ul>
+		<li th:fragment="prdDisplay01(imgUrl, prdName, price01, price02)">
+			<div class="prdItem">
+				<a href="#" target="_self" class="prdLink">
+					<div class="prdImg">
+						<img th:src="${imgUrl}" alt="${prdName}" width="300" height="300" onerror="this.src='http://static2.e-himart.co.kr/resources/layout/images/default/300.jpg'">
+					</div>
+					<div class="prdInfo">
+						<p class="prdName" th:text="${prdName}"></p>
+						<div class="prdPrice priceTxt">
+							<div class="priceInfo">
+								<span class="discountPrice"><strong th:text="${price01}"></strong><span class="priceUnit">원</span></span>
+							</div>
+							<div class="priceInfo priceBenefit">
+								<span class="discountPrice"><strong th:text="${price02}"></strong><span class="priceUnit">원</span></span>
+								<span class="priceTit">최대혜택가</span>
+							</div>
+							<div class="savePoint">
+								<span>사은품 증정</span>
+							</div>
+						</div>
+					</div>                        
+				</a>
+			</div>
+		</li>
+	</ul>
+</body>
+</html>
