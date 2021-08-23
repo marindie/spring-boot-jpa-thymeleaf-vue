@@ -1,0 +1,94 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+
+	"wonyjson": {
+		"scope": "java",
+		"prefix": "wonyrest",
+		"body": [
+			"@RequestMapping(value=\"${1:/path}\", method={RequestMethod.POST}, produces = \"application/json\")",
+			"public @ResponseBody ${2:String} ${3:methodName}(@RequestBody Map<String,Object> param, Model model) {",
+			"\t$0",
+			"\tMap<String,Object> retMap = new HashMap<String,Object>();",
+			"\tGson gson = new Gson();",
+			"\treturn gson.toJson(retMap);",
+			"}"
+		],
+		"description": "wony rest api"
+	},
+
+	"wonyget": {
+		"scope": "java",
+		"prefix": "wonyget",
+		"body": [
+			"@RequestMapping(value=\"${1:/path}\")",
+			"public String ${2:methodName}(@RequestParam Map<String,Object> param, Model model) {",
+			"\tString name = \"\";",
+			"\t$0",
+			"\tmodel.addAttribute(\"name\",name);",
+			"\treturn \"${3:viewName}\";",
+			"}"
+		],
+		"description": "wony get"
+	},
+	"wonyview": {
+		"scope": "java",
+		"prefix": "wonyview",
+		"body": [
+			"@RequestMapping(value=\"${1:/path}\")",
+			"public String ${2:methodName}(@RequestParam Map<String,Object> param, Model model) {",
+			"\tString name = \"\";",
+			"\t$0",
+			"\tmodel.addAttribute(\"name\",name);",
+			"\treturn \"${3:viewName}\";",
+			"}"
+		],
+		"description": "wony view"
+	},
+	"wonymap": {
+		"scope": "java",
+		"prefix": "wonymap",
+		"body": [
+			"Map<String,Object> ${1:map} = new HashMap<String,Object>();",
+		],
+		"description": "wony map"
+	},
+	"wonylistmap": {
+		"scope": "java",
+		"prefix": "wonylistmap",
+		"body": [
+			"List<Map<String,Object>> ${1:listMap} = new ArrayList<Map<String,Object>>();",
+		],
+		"description": "wony list map"
+	},
+	"divreplace": {
+		"scope": "html",
+		"prefix": "divreplace",
+		"body": [
+			"<div th:replace=\"${1}/${2:fileName}.html :: ${3:fileOrFragmentNameOrMarkupOrExpression}\">${0}</div>",
+		],
+		"description": "div thymeleaf replace"
+	},
+	"divfragment": {
+		"scope": "html",
+		"prefix": "divfragment",
+		"body": [
+			"<div th:fragment=\"${1:foo}\"></div>",
+		],
+		"description": "div thymeleaf fragment"
+	},	
+}
